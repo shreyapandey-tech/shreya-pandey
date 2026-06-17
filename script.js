@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    /* --- Mouse Glow Follow Effect --- */
+    const glow = document.getElementById('glow-follow');
+    
+    document.addEventListener('mousemove', (e) => {
+        // Use requestAnimationFrame for smoother performance
+        requestAnimationFrame(() => {
+            if (glow) {
+                glow.style.left = e.clientX + 'px';
+                glow.style.top = e.clientY + 'px';
+            }
+        });
+    });
+
     /* --- Mobile Menu Toggle --- */
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -32,33 +45,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* --- Typewriter Effect --- */
     const roles = [
-        ".NET Developer",
-        "Backend Engineer",
-        "Microservices Enthusiast",
-        "Full-Stack Developer"
+        "I build scalable backend systems ⚡",
+        "Performance Optimization Expert",
+        ".NET Core & Microservices",
+        "API Design Specialist"
     ];
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let typingSpeed = 100;
+    let typingSpeed = 70; // Slightly faster for longer sentences
     const typewriterElement = document.getElementById('typewriter');
 
     function typeWriter() {
+        if (!typewriterElement) return;
+
         const currentRole = roles[roleIndex];
         
         if (isDeleting) {
             typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
             charIndex--;
-            typingSpeed = 50;
+            typingSpeed = 30; // Fast delete
         } else {
             typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
             charIndex++;
-            typingSpeed = 100;
+            typingSpeed = 70; // Normal type
         }
 
         if (!isDeleting && charIndex === currentRole.length) {
             isDeleting = true;
-            typingSpeed = 1500; // Pause at end
+            typingSpeed = 2000; // Pause at end of sentence
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             roleIndex = (roleIndex + 1) % roles.length;
@@ -82,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Add class to trigger CSS animation
                 entry.target.classList.add('appear');
                 
                 // If it's the stats section, trigger counters
@@ -90,17 +106,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 // Optional: unobserve after animating
-                // observer.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe elements with fade-in classes
+    // Observe all elements with fade-in classes
     const fadeElements = document.querySelectorAll('.fade-in, .fade-in-up, .fade-in-left, .fade-in-right');
     fadeElements.forEach(el => observer.observe(el));
 
 
-    /* --- Animated Counters --- */
+    /* --- Animated Counters (with Staggering handled via CSS/JS) --- */
     let countersStarted = false;
     
     function startCounters() {
@@ -108,47 +124,27 @@ document.addEventListener('DOMContentLoaded', () => {
         countersStarted = true;
 
         const counters = document.querySelectorAll('.counter');
-        const speed = 200; // The lower the slower
+        const speed = 200;
 
-        counters.forEach(counter => {
-            const animate = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                // Calculate increment
-                const inc = target / speed;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animate, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            }
-            animate();
-        });
-    }
-
-    /* --- Form Submission (Prevent Default for demo) --- */
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button');
-            const originalText = btn.innerHTML;
-            
-            btn.innerHTML = 'Sent Successfully! <i class="fas fa-check"></i>';
-            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-            
+        counters.forEach((counter, index) => {
+            // Add slight stagger to start time based on index
             setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = '';
-                form.reset();
-                
-                // Reset floating labels by blurring
-                const inputs = form.querySelectorAll('input, textarea');
-                inputs.forEach(input => input.blur());
-            }, 3000);
+                const animate = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(animate, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+                animate();
+            }, index * 200); // 200ms stagger between counters starting
         });
     }
+
 });

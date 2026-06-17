@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,11 +19,11 @@
 </head>
 <body>
     <!-- Background Animation Elements -->
-    <div class="bg-animated">
+    <div class="bg-animated" id="bg-animated">
+        <div class="grid-overlay"></div>
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="glass-overlay"></div>
+        <div class="glow-follow" id="glow-follow"></div>
     </div>
 
     <!-- Navigation -->
@@ -32,7 +32,7 @@
             <a href="#" class="logo">S<span class="glow">S</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#why-hire-me">Why Me</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact" class="btn btn-outline">Contact</a></li>
@@ -47,34 +47,85 @@
     <section id="hero" class="hero section">
         <div class="container hero-container">
             <div class="hero-content fade-in-up">
+                <div class="trust-badge glass-card fade-in-up" style="--delay: 0.1s">
+                    <i class="fas fa-check-circle" style="color: #10b981;"></i> 
+                    <span>3.5+ Years Experience | Built Scalable Systems | Improved Efficiency by 90%</span>
+                </div>
+                
                 <h2 class="greeting">Hello, I'm</h2>
-                <h1 class="name">Shreya <span class="glow">Suman</span></h1>
+                <h1 class="name">Shreya <span class="glow name-glow">Suman</span></h1>
+                
                 <h3 class="role"><span id="typewriter"></span><span class="cursor">|</span></h3>
-                <p class="tagline">Building scalable backend systems and high-performance applications.</p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                
+                <p class="tagline">Helping companies build high-performance, scalable backend systems with .NET.</p>
+                
+                <div class="hero-cta fade-in-up" style="--delay: 0.4s">
+                    <a href="#projects" class="btn btn-primary btn-ripple">View Projects</a>
                     <a href="assets/resume.pdf" class="btn btn-secondary" target="_blank">Download Resume</a>
                 </div>
             </div>
+            
             <div class="hero-image fade-in-left">
                 <div class="image-wrapper glass-card">
                     <div class="image-inner">
-                        <!-- Placeholder for user image -->
-                        <img src="assets/profile.png" alt="Shreya Suman" onerror="this.src='https://ui-avatars.com/api/?name=Shreya+Suman&size=300&background=1e293b&color=8B5CF6'">
+                        <img src="assets/profile.jpg" alt="Shreya Suman" onerror="this.src='https://ui-avatars.com/api/?name=Shreya+Suman&size=300&background=1e293b&color=8B5CF6'">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. About Me Section -->
+    <!-- 2. About Section (Storytelling Blocks) -->
     <section id="about" class="about section">
         <div class="container">
             <h2 class="section-title fade-in">About <span class="glow">Me</span></h2>
-            <div class="about-content glass-card fade-in-up">
-                <p>I am a results-driven <strong>.NET Developer</strong> with <strong>3.5+ years of experience</strong> in designing and delivering scalable back-end services, enterprise APIs, and full-stack web applications.</p>
-                <p>My core expertise lies in <strong>.NET Core, ASP.NET MVC, C#, and SQL Server</strong>. I have a strong foundation in system design, Agile methodologies, and remote collaboration. I thrive in building efficient microservices, automating complex workflows, and creating high-performance reporting tools.</p>
-                <p>I am passionate about asynchronous remote collaboration, code quality, and delivering outcome-focused solutions that directly impact business efficiency.</p>
+            
+            <div class="about-grid">
+                <div class="about-block glass-card fade-in-up" style="--delay: 0.1s">
+                    <div class="about-icon"><i class="fas fa-user-astronaut"></i></div>
+                    <h3>Who I Am</h3>
+                    <p>I am a results-driven .NET Developer with 3.5+ years of experience engineering enterprise APIs and back-end services.</p>
+                </div>
+                
+                <div class="about-block glass-card fade-in-up" style="--delay: 0.2s">
+                    <div class="about-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>My Specialization</h3>
+                    <p>Deep expertise in .NET Core, Microservices Architecture, API Design, and MS SQL Server database optimization.</p>
+                </div>
+                
+                <div class="about-block glass-card fade-in-up" style="--delay: 0.3s">
+                    <div class="about-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>The Value I Bring</h3>
+                    <p>I focus on solving slow reporting, automating manual ETL pipelines, and reducing system latency by up to 40%.</p>
+                </div>
+            </div>
+            
+            <div class="human-touch fade-in-up" style="--delay: 0.4s">
+                <p><em>"I enjoy solving complex backend problems and turning them into simple, scalable systems."</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Why Hire Me Section -->
+    <section id="why-hire-me" class="why-hire section">
+        <div class="container">
+            <h2 class="section-title fade-in">Why <span class="glow">Hire Me</span></h2>
+            <div class="why-grid">
+                <div class="why-card glass-card fade-in-up" style="--delay: 0.1s">
+                    <div class="why-icon"><i class="fas fa-server"></i></div>
+                    <h3>Scalable Backend Systems</h3>
+                    <p>Architecting modular .NET microservices designed for independent deployment and enterprise load.</p>
+                </div>
+                <div class="why-card glass-card fade-in-up" style="--delay: 0.2s">
+                    <div class="why-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Performance Optimization</h3>
+                    <p>Proven track record of optimizing SQL queries and algorithms to slash latency and manual tasks.</p>
+                </div>
+                <div class="why-card glass-card fade-in-up" style="--delay: 0.3s">
+                    <div class="why-icon"><i class="fas fa-laptop-house"></i></div>
+                    <h3>Remote-Ready Collaboration</h3>
+                    <p>Highly effective in async workflows, cross-timezone PR reviews, and agile distributed teams.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -83,17 +134,22 @@
     <section id="skills" class="skills section">
         <div class="container">
             <h2 class="section-title fade-in">Tech <span class="glow">Stack</span></h2>
+            
+            <div class="primary-stack glass-card fade-in-up">
+                <i class="fas fa-star" style="color: #fbbf24;"></i>
+                <strong>Primary Stack:</strong> .NET Core, SQL Server, Azure
+            </div>
+            
             <div class="skills-grid">
                 
                 <div class="skill-category glass-card fade-in-up" style="--delay: 0.1s">
                     <div class="cat-icon"><i class="fas fa-code"></i></div>
                     <h3>Languages</h3>
                     <div class="skill-tags">
-                        <span>C#</span>
-                        <span>JavaScript</span>
-                        <span>SQL</span>
-                        <span>Java</span>
-                        <span>PHP</span>
+                        <span class="expert">C#</span>
+                        <span class="expert">SQL</span>
+                        <span class="intermediate">JavaScript</span>
+                        <span class="intermediate">Java</span>
                     </div>
                 </div>
 
@@ -101,56 +157,21 @@
                     <div class="cat-icon"><i class="fas fa-server"></i></div>
                     <h3>Backend</h3>
                     <div class="skill-tags">
-                        <span>.NET Core 6/8</span>
-                        <span>ASP.NET MVC</span>
-                        <span>Web API</span>
-                        <span>REST APIs</span>
-                        <span>Microservices</span>
+                        <span class="expert">.NET Core 6/8</span>
+                        <span class="expert">Web API</span>
+                        <span class="expert">Microservices</span>
+                        <span class="intermediate">ASP.NET MVC</span>
                     </div>
                 </div>
 
                 <div class="skill-category glass-card fade-in-up" style="--delay: 0.3s">
-                    <div class="cat-icon"><i class="fas fa-desktop"></i></div>
-                    <h3>Frontend</h3>
-                    <div class="skill-tags">
-                        <span>Angular</span>
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                        <span>jQuery</span>
-                    </div>
-                </div>
-
-                <div class="skill-category glass-card fade-in-up" style="--delay: 0.4s">
                     <div class="cat-icon"><i class="fas fa-database"></i></div>
-                    <h3>Database</h3>
+                    <h3>Data & Cloud</h3>
                     <div class="skill-tags">
-                        <span>MS SQL Server</span>
-                        <span>MySQL</span>
-                        <span>MongoDB</span>
-                        <span>Redis</span>
-                        <span>SSIS/ETL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category glass-card fade-in-up" style="--delay: 0.5s">
-                    <div class="cat-icon"><i class="fas fa-cloud"></i></div>
-                    <h3>Cloud & DevOps</h3>
-                    <div class="skill-tags">
-                        <span>Azure Services</span>
-                        <span>Azure DevOps</span>
-                        <span>CI/CD Pipelines</span>
-                    </div>
-                </div>
-
-                <div class="skill-category glass-card fade-in-up" style="--delay: 0.6s">
-                    <div class="cat-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Tools & Frameworks</h3>
-                    <div class="skill-tags">
-                        <span>Entity Framework</span>
-                        <span>Git/GitHub</span>
-                        <span>Postman</span>
-                        <span>Swagger</span>
+                        <span class="expert">MS SQL Server</span>
+                        <span class="expert">SSIS/ETL</span>
+                        <span class="intermediate">Azure DevOps</span>
+                        <span class="intermediate">MongoDB</span>
                     </div>
                 </div>
 
@@ -165,36 +186,49 @@
             <div class="timeline">
                 
                 <div class="timeline-item fade-in-left">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot pulse-glow"></div>
                     <div class="timeline-content glass-card">
                         <div class="timeline-header">
                             <h3>Software Developer</h3>
                             <span class="timeline-date">June 2025 – Present</span>
                         </div>
                         <h4 class="company">Radius Global Solutions <span>| Remote</span></h4>
+                        
+                        <div class="key-resp">Simulation Engineering | Automation | Remote Delivery</div>
+                        
                         <ul class="timeline-list">
-                            <li>Built and enhanced a WinForms + .NET Framework call-training simulator for real-time scenarios.</li>
-                            <li>Integrated automated assessment tools, eliminating <strong>30 hrs/week</strong> of manual grading.</li>
-                            <li>Improved overall training efficiency by <strong>20%</strong>.</li>
-                            <li>Collaborated asynchronously with trainers to reduce new-agent onboarding time.</li>
+                            <li>Built and enhanced a WinForms + .NET Framework call-training simulator.</li>
+                            <li>Integrated automated assessment tools into the pipeline.</li>
                         </ul>
+                        
+                        <div class="impact-badges">
+                            <span class="badge badge-success"><i class="fas fa-clock"></i> Saved 30 hrs/week</span>
+                            <span class="badge badge-primary"><i class="fas fa-level-up-alt"></i> +20% efficiency</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="timeline-item fade-in-right">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot pulse-glow"></div>
                     <div class="timeline-content glass-card">
                         <div class="timeline-header">
                             <h3>Full-Stack .NET Developer</h3>
                             <span class="timeline-date">Feb 2023 – June 2025</span>
                         </div>
                         <h4 class="company">Isango Travel Pvt. Ltd.</h4>
+                        
+                        <div class="key-resp">Backend Development | API Design | Performance Optimization</div>
+                        
                         <ul class="timeline-list">
-                            <li>Engineered a custom C# + SQL Server reporting tool to replace SSRS, reducing report generation latency by <strong>40%</strong>.</li>
-                            <li>Designed modular ASP.NET MVC applications using <strong>Microservices Architecture</strong>.</li>
-                            <li>Implemented an SSIS-based ETL pipeline, eliminating <strong>90%</strong> of manual data processing tasks.</li>
-                            <li>Led Angular front-end development alongside .NET Core Web API services, accelerating project delivery by 20%.</li>
+                            <li>Engineered a custom C# + SQL Server reporting tool to replace SSRS.</li>
+                            <li>Designed modular ASP.NET MVC applications using Microservices Architecture.</li>
+                            <li>Implemented an SSIS-based ETL pipeline for cross-department ingestion.</li>
                         </ul>
+
+                        <div class="impact-badges">
+                            <span class="badge badge-purple"><i class="fas fa-bolt"></i> 40% faster reports</span>
+                            <span class="badge badge-cyan"><i class="fas fa-robot"></i> 90% automation</span>
+                        </div>
                     </div>
                 </div>
 
@@ -202,53 +236,83 @@
         </div>
     </section>
 
-    <!-- 5. Projects Section -->
+    <!-- 5. Projects Section (Product Focus) -->
     <section id="projects" class="projects section">
         <div class="container">
-            <h2 class="section-title fade-in">Key <span class="glow">Projects</span></h2>
+            <h2 class="section-title fade-in">Featured <span class="glow">Products</span></h2>
             <div class="projects-grid">
                 
-                <div class="project-card glass-card fade-in-up" style="--delay: 0.1s">
+                <!-- Project 1 -->
+                <div class="project-card product-card glass-card fade-in-up" style="--delay: 0.1s">
+                    <div class="mock-ui placeholder-1">
+                        <div class="mock-header">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="mock-body"><i class="fas fa-chart-bar"></i> Enterprise Reporting Dashboard</div>
+                    </div>
+                    
                     <div class="project-content">
                         <h3>Custom SSRS Replacement</h3>
-                        <p>A standalone reporting tool built to replace legacy SQL Server Reporting Services, delivering faster report generation and enhanced data visualization.</p>
-                        <div class="project-tech">
-                            <span>C#</span>
-                            <span>SQL Server</span>
-                            <span>.NET Core</span>
+                        <p class="hook-line"><em>Designed for scalability and enterprise reporting use cases.</em></p>
+                        
+                        <div class="problem-solution">
+                            <p><strong>Problem:</strong> Legacy SQL Server Reporting Services were slow and visually outdated.</p>
+                            <p><strong>Solution:</strong> Built a standalone C# & .NET Core reporting tool optimized for modern analytics.</p>
+                            <p><strong>Impact:</strong> <span class="glow-text">Reduced reporting latency by 40%.</span></p>
                         </div>
-                        <div class="project-impact">
-                            <i class="fas fa-chart-line"></i> 40% faster report generation
+
+                        <div class="project-tech">
+                            <span>C#</span><span>SQL Server</span><span>.NET Core</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card glass-card fade-in-up" style="--delay: 0.2s">
+                <!-- Project 2 -->
+                <div class="project-card product-card glass-card fade-in-up" style="--delay: 0.2s">
+                    <div class="mock-ui placeholder-2">
+                        <div class="mock-header">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="mock-body"><i class="fas fa-network-wired"></i> ETL Data Pipeline</div>
+                    </div>
+                    
                     <div class="project-content">
                         <h3>SSIS-Based ETL Pipeline</h3>
-                        <p>An automated cross-department data ingestion and transformation pipeline establishing a reliable, audit-friendly ETL workflow.</p>
-                        <div class="project-tech">
-                            <span>SSIS</span>
-                            <span>SQL</span>
-                            <span>Data Integration</span>
+                        <p class="hook-line"><em>Built to establish a reliable, audit-friendly automated workflow.</em></p>
+                        
+                        <div class="problem-solution">
+                            <p><strong>Problem:</strong> Cross-department data integration relied heavily on error-prone manual processing.</p>
+                            <p><strong>Solution:</strong> Automated ingestion and transformation using SSIS and SQL Server agent jobs.</p>
+                            <p><strong>Impact:</strong> <span class="glow-text">Eliminated 90% of manual data tasks.</span></p>
                         </div>
-                        <div class="project-impact">
-                            <i class="fas fa-robot"></i> 90% manual tasks automated
+
+                        <div class="project-tech">
+                            <span>SSIS</span><span>SQL</span><span>Data Integration</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card glass-card fade-in-up" style="--delay: 0.3s">
+                <!-- Project 3 -->
+                <div class="project-card product-card glass-card fade-in-up" style="--delay: 0.3s">
+                    <div class="mock-ui placeholder-3">
+                        <div class="mock-header">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="mock-body"><i class="fas fa-headset"></i> Call Simulator Interface</div>
+                    </div>
+                    
                     <div class="project-content">
                         <h3>Call-Training Simulator</h3>
-                        <p>A simulator enabling agents to rehearse real-time call scenarios before going live, measurably reducing time-to-productivity.</p>
-                        <div class="project-tech">
-                            <span>WinForms</span>
-                            <span>.NET Framework</span>
-                            <span>C#</span>
+                        <p class="hook-line"><em>Measurably reducing time-to-productivity for new hires.</em></p>
+                        
+                        <div class="problem-solution">
+                            <p><strong>Problem:</strong> High manual grading time and risk-prone live training environments.</p>
+                            <p><strong>Solution:</strong> Engineered a WinForms sandbox allowing agents to rehearse scenarios risk-free.</p>
+                            <p><strong>Impact:</strong> <span class="glow-text">Eliminated 30 hrs/week of manual grading.</span></p>
                         </div>
-                        <div class="project-impact">
-                            <i class="fas fa-clock"></i> Saved 30 hrs/week in grading
+
+                        <div class="project-tech">
+                            <span>WinForms</span><span>.NET Framework</span><span>C#</span>
                         </div>
                     </div>
                 </div>
@@ -261,19 +325,19 @@
     <section id="achievements" class="achievements section">
         <div class="container">
             <div class="stats-grid glass-card fade-in">
-                <div class="stat-item">
+                <div class="stat-item fade-in-up" style="--delay: 0.1s">
                     <div class="stat-number"><span class="counter" data-target="40">0</span>%</div>
                     <div class="stat-label">Faster Reporting</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item fade-in-up" style="--delay: 0.2s">
                     <div class="stat-number"><span class="counter" data-target="90">0</span>%</div>
                     <div class="stat-label">Automation Achieved</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item fade-in-up" style="--delay: 0.3s">
                     <div class="stat-number"><span class="counter" data-target="30">0</span>+</div>
                     <div class="stat-label">Hrs/Week Saved</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item fade-in-up" style="--delay: 0.4s">
                     <div class="stat-number"><span class="counter" data-target="20">0</span>%</div>
                     <div class="stat-label">Efficiency Boost</div>
                 </div>
@@ -281,47 +345,20 @@
         </div>
     </section>
 
-    <!-- 7. Education & 8. Remote Work Ready -->
-    <section class="dual-section section">
-        <div class="container dual-container">
-            
-            <div class="education fade-in-left">
-                <h2 class="section-title">Education</h2>
-                <div class="edu-card glass-card">
-                    <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="edu-details">
-                        <h3>B.Tech, Computer Science</h3>
-                        <span class="edu-date">Aug 2020 – May 2023</span>
-                        <p class="gpa">SGPA: 8.5 / 10.0</p>
-                        <p class="edu-desc">Strong foundation in algorithms, data structures, OOP, and software engineering.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="remote-ready fade-in-right">
-                <h2 class="section-title">Remote <span class="glow">Ready</span></h2>
-                <div class="remote-card glass-card">
-                    <ul class="remote-list">
-                        <li><i class="fas fa-globe-americas"></i> <strong>Global Availability:</strong> US (EST/PST), EU (CET/GMT), APAC</li>
-                        <li><i class="fas fa-comments"></i> <strong>Async-First:</strong> PR-driven development, Jira, Confluence</li>
-                        <li><i class="fas fa-users"></i> <strong>Agile Teams:</strong> Video standups, async retrospectives</li>
-                        <li><i class="fas fa-rocket"></i> <strong>Self-Directed:</strong> Outcome-focused, independent delivery</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 9. Contact Section -->
+    <!-- 7. Education & 9. Contact Section -->
     <section id="contact" class="contact section">
         <div class="container">
-            <h2 class="section-title fade-in">Get In <span class="glow">Touch</span></h2>
-            <div class="contact-container glass-card fade-in-up">
+            <h2 class="section-title fade-in">Let's Build Something <span class="glow">Amazing</span></h2>
+            
+            <div class="urgency-banner glass-card fade-in-up">
+                <i class="fas fa-rocket"></i> Open to remote opportunities | Available immediately
+            </div>
+
+            <div class="contact-container fade-in-up">
                 
-                <div class="contact-info">
-                    <h3>Let's build something amazing together.</h3>
-                    <p>I'm currently open to new remote opportunities worldwide.</p>
+                <div class="contact-info glass-card">
+                    <h3>Get In Touch</h3>
+                    <p>I'm always open to discussing backend architecture, system performance, or remote opportunities.</p>
                     
                     <div class="contact-methods">
                         <a href="mailto:Sumanshreya000@gmail.com" class="contact-method">
@@ -342,22 +379,15 @@
                     </div>
                 </div>
 
-                <div class="contact-form-ui">
-                    <form onsubmit="event.preventDefault();">
-                        <div class="form-group">
-                            <input type="text" id="name" required placeholder=" ">
-                            <label for="name">Your Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" required placeholder=" ">
-                            <label for="email">Your Email</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="4" required placeholder=" "></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Send Message <i class="fas fa-paper-plane"></i></button>
-                    </form>
+                <div class="edu-card glass-card">
+                    <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="edu-details">
+                        <h3>Education</h3>
+                        <h4>B.Tech, Computer Science</h4>
+                        <span class="edu-date">Aug 2020 – May 2023</span>
+                        <p class="gpa">SGPA: 8.5 / 10.0</p>
+                        <p class="edu-desc">Strong foundation in algorithms, data structures, OOP, and software engineering.</p>
+                    </div>
                 </div>
 
             </div>
@@ -368,7 +398,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>Built with <i class="fas fa-heart" style="color: #ef4444;"></i> by Shreya Suman</p>
+                <p>Built with <i class="fas fa-bolt" style="color: var(--accent-cyan);"></i> by Shreya Suman</p>
             </div>
         </div>
     </footer>
